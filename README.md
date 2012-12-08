@@ -45,22 +45,15 @@ This may take a few minutes.
 
 ---
 
-Create a new Django project using this repo as a project template:
+Create a new Django project using this repo as a project template and switch
+to the new application folder:
 
 ```
-django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master app
+django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master app; cd app
 ```
 
 This command will create a new folder named *app* in which your Django 
 project will live.
-
----
-
-Switch to your project's folder to begin setup:
-
-```
-cd app
-```
 
 ---
 
