@@ -230,7 +230,7 @@ WSGI_APPLICATION = 'wsgi.application'
 
 ########## COMPRESSION CONFIGURATION
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OUTPUT_DIR
 COMPRESS_OUTPUT_DIR = 'min'
