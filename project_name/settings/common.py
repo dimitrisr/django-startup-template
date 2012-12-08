@@ -243,3 +243,12 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.template.TemplateFilter',
 ]
 ########## END COMPRESSION CONFIGURATION
+
+
+########## GENERIC CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#prepend-www
+PREPEND_WWW = True
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#append-slash
+APPEND_SLASH = True
+########## GENERIC CONFIGURATION
