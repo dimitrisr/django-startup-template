@@ -17,27 +17,60 @@ functionality:
 
 Install
 =======
-1. Create a new folder on your system and switch to that folder:
-  ```mkdir awesome_project```
-  ```cd awesome_project```
+Create a new folder on your system and switch to that folder:
 
-2. Create a new Django project using this repo as a project template:
-  ```django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master app```
-  
-  This command will create a new folder named *app* in which your Django 
-  project will live.
+```
+mkdir awesome_project; cd awesome_project
+```
 
-4. Switch to your project's folder to begin setup:
-   ```cd app```
+---
 
-5. Create a virtual environment:
-    ```mkvirtualenv awesome_project```
+Create and initialize a new virtual environment:
 
-6. Initialize the virtual environment:
-   ```source /usr/local/bin/virtualenvwrapper.sh; workon awesome_project```
+```
+mkvirtualenv awesome_project
+source /usr/local/bin/virtualenvwrapper.sh
+workon awesome_project
+```
 
-7. Install dependencies:
-   ```pip install -r requirements/development.txt```
+---
+
+Download and install the latest stable version of Django (1.4):
+
+```
+pip install django
+```
+
+This may take a few minutes.
+
+---
+
+Create a new Django project using this repo as a project template:
+
+```
+django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master app
+```
+
+This command will create a new folder named *app* in which your Django 
+project will live.
+
+---
+
+Switch to your project's folder to begin setup:
+
+```
+cd app
+```
+
+---
+
+Install dependencies:
+
+```
+pip install -r requirements/development.txt
+```
+This will install Django 1.4 and all other packages that you will be using.
+It may take some time.
 
 
 Set-up
@@ -57,27 +90,39 @@ Set-up
 Workflow
 ========
 0. Initialize the virtual environment
-   ```source /usr/local/bin/virtualenvwrapper.sh; workon default```
+```
+source /usr/local/bin/virtualenvwrapper.sh; workon default
+```
 
 1. Making changes to the database (Models)
-   ```python manage.py migrate```
+```
+python manage.py migrate
+```
 
 2. Making changes to static files (under /assets)
    ...
 
 3. Installing dependencies
-    * On your machine
-    ```pip install -r requirements/development.txt```
+**On your machine**
+```
+pip install -r requirements/development.txt
+```
 
-    * On the remote server
-    ```pip install -r requirements.txt```
+**On the remote server**
+```
+pip install -r requirements.txt
+```
     
 4. Updating dependencies
-    * On your machine
-    ```pip install -U -r requirements/development.txt```
+**On your machine**
+```
+pip install -U -r requirements/development.txt
+```
 
-    * On the remote server
-    ```pip install -U -r requirements.txt```
+**On the remote server**
+```
+pip install -U -r requirements.txt
+```
 
 Deployment
 ==========
@@ -97,14 +142,19 @@ Once you have pushed your code to the server (using ```git push```) you need
 to re-generate your static files.
 
 1. Compress JS & CSS (django-compress):
-  ```python manage.py compress```
-
+```
+python manage.py compress
+```
 
 2. Copy files from /assets/ to /static/ and push them to Amazon S3 (django-storage):
-  ```python manage.py collectstatic --noinput```
+```
+python manage.py collectstatic --noinput
+```
 
 3. If you have made changes to your database you need to run migrations (south)
-    ```python manage.py migrate```
+```
+python manage.py migrate
+```
 
 
 Deploy your Django app on Webfaction 
