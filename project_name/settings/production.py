@@ -1,30 +1,23 @@
 """Production settings and globals."""
 
-
-from os import environ
-
-from memcacheify import memcacheify
-from postgresify import postgresify
-from S3 import CallingFormat
-
 from common import *
-
+from S3 import CallingFormat
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_HOST = 'smtp.gmail.com'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_PASSWORD = ''
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
-EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER', 'your_email@example.com')
+EMAIL_HOST_USER = ''
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-port
-EMAIL_PORT = environ.get('EMAIL_PORT', 587)
+EMAIL_PORT = 587
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
 EMAIL_SUBJECT_PREFIX = '[%s] ' % SITE_NAME
@@ -75,9 +68,9 @@ STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoSto
 AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
-AWS_STORAGE_BUCKET_NAME = environ.get('AWS_STORAGE_BUCKET_NAME', '')
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = ''
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
 
@@ -114,8 +107,3 @@ COMPRESS_JS_FILTERS += [
 ]
 ########## END COMPRESSION CONFIGURATION
 
-
-########## SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = environ.get('SECRET_KEY', SECRET_KEY)
-########## END SECRET CONFIGURATION

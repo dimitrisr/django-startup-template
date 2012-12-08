@@ -1,7 +1,5 @@
 """Common settings and globals."""
 
-
-from datetime import timedelta
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
@@ -107,7 +105,7 @@ STATICFILES_FINDERS = (
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = r"{{ secret_key }}"
+SECRET_KEY = '{{ secret_key }}'
 ########## END SECRET CONFIGURATION
 
 
