@@ -26,8 +26,8 @@ mkdir MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
 **Create and initialize a new virtual environment**
 
 ```
-mkvirtualenv ENV_AWESOME_PROJECT
 source /usr/local/bin/virtualenvwrapper.sh
+mkvirtualenv ENV_AWESOME_PROJECT
 workon ENV_AWESOME_PROJECT
 ```
 
@@ -49,8 +49,12 @@ This may take a few minutes.
 switch to the new application folder
 
 ```
-django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master app; cd app
+django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
 ```
 
-This command will create a new folder named *app* in which your Django 
+This command will create a new folder named *MY_AWESOME_PROJECT* in which your Django 
 project will live.
+
+Now browse to the new project's directory and follow the instructions in README
+
+
