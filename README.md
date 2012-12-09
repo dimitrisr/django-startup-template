@@ -49,7 +49,7 @@ This may take a few minutes.
 switch to the new application folder
 
 ```
-django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
+django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master --extension=py,md,conf MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
 ```
 
 This command will create a new folder named *MY_AWESOME_PROJECT* in which your Django 
