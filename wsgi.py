@@ -15,10 +15,7 @@ framework.
 """
 import os
 
-server = 'development' if os.environ.get('IS_LOCAL', False) else 'production'
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-    '{{ project_name }}.settings.%s' % server)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.settings')
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION

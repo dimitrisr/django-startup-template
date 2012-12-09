@@ -1,5 +1,8 @@
+import os
+
 try:
-    from app import is_local
+    import app.is_local
+    from development import *
 except:
-    pass
+    from production import *
 
