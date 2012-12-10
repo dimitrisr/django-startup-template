@@ -14,28 +14,44 @@ functionality:
 4. django-debug-toolbar: Awesome tool to debug your django site locally.
 5. south: Painless database schema migrations.
 
+Requirements
+=============
+
+1. Git
+2. Pip
+3. virtualenv
 
 Install
 =======
 **Create a new folder on your system and switch to that folder**
 
 ```
-mkdir MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
+mkdir my_django_project
+```
+
+
+```
+cd my_django_project
 ```
 
 **Create and initialize a new virtual environment**
 
 ```
 source /usr/local/bin/virtualenvwrapper.sh
-mkvirtualenv ENV_AWESOME_PROJECT
-workon ENV_AWESOME_PROJECT
 ```
 
-*Note* this will create a system-wide virtual environment under the name
-```ENV_AWESOME_PROJECT```. You will be able to switch to that virtual 
-environment from any folder, not just ```MY_AWESOME_PROJECT```. As such, you
-may or may not want to change the virtual environment's name to something else.
-If all this sounds confusing spend 30 minutes to read on virtual environments.
+You should probably change ```env_my_django_project``` to something more 
+meaningful.
+
+```
+mkvirtualenv env_my_django_project
+```
+
+
+```
+workon env_my_django_project
+```
+
 
 **Download and install the latest stable version of Django (1.4)**
 
@@ -49,12 +65,10 @@ This may take a few minutes.
 switch to the new application folder
 
 ```
-django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master --extension=py,md,conf MY_AWESOME_PROJECT; cd MY_AWESOME_PROJECT
+django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master --extension=py,md,conf,.gitignore app; cd app
 ```
 
-This command will create a new folder named *MY_AWESOME_PROJECT* in which your Django 
+This command will create a new folder named **```app```** in which your Django 
 project will live.
 
-Now browse to the new project's directory and follow the instructions in README
-
-
+Now browse to the new project's directory and follow the instructions in **SETUP.md**.

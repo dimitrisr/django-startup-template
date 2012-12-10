@@ -1,5 +1,14 @@
 Set-up {{ project_name }}
 -------------------------
+**Make sure you are working from the virtual environment**
+
+You should always do this.
+
+```
+source /usr/local/bin/virtualenvwrapper.sh
+workon env_{{ project_name }}
+```
+
 **Move the local settings file**
 
 ```
@@ -55,7 +64,8 @@ From now on, whenever you wish to work on your awesome project you need to
 **initialize the virtual environment** you previously created. Switch to your project folder, if not already there, and:
 
 ```
-source /usr/local/bin/virtualenvwrapper.sh; workon {{ project_name }}
+source /usr/local/bin/virtualenvwrapper.sh
+workon env_{{ project_name }}
 ```
 
 Whenever you make changes to your database Models, add new apps or remove
@@ -135,22 +145,43 @@ python manage.py migrate
 Deploy your Django app on Webfaction
 =====================================
 
-**Make sure we work with python-2.7**
+Create a new Django application on webfaction called  **{{ project_name }}**.
+
+**SSH to your webfaction account**
+
+```
+ssh account@ip-address
+```
+
+Create a new folder to place your app. It is adviced to keep your code under ```app``` as that folder is referenced in other places as well.
+
+```
+mkdir ~/webapps/{{ project_name }}/app
+```
+
+The myproject folder created by webfaction will not be used so remove it.
+
+```
+rm -r ~/webapps/{{ project_name }}/myproject
+```
+
+**Make sure we work with Python 2.7**
+
+Add some aliases on ```.bash_profile``` to reference python2.7 instead of an 
+older version and reload the file.
 
 ```
 echo "alias python=python2.7" >> ~/.bash_profile
 echo "alias pip=pip-2.7" >> ~/.bash_profile
 echo "alias easy_install=easy_install-2.7" >> ~/.bash_profile
 mkdir ~/lib/python2.7
-```
-
-**Reload bash_profile**
-
-```
 source ~/.bash_profile
 ```
 
 **Install Pip**
+
+Pip is a python package manager we will be using for installing and updating
+python libraries and third-party django apps.
 
 ```
 easy_install pip
@@ -166,102 +197,162 @@ pip install --install-option="--user" virtualenvwrapper
 **Set Environment Variables**
 
 ```
-echo "PYTHONPATH=$HOME/lib/python2.7" >> ~/.bash_profile
+echo "PYTHONPATH=~/lib/python2.7" >> ~/.bash_profile
 echo "export PYTHONPATH" >> ~/.bash_profile
 echo "export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7" >> ~/.bash_profile
-echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bash_profile
-echo "export PROJECT_HOME=$HOME/webapps" >> ~/.bash_profile
+echo "export WORKON_HOME=~/.virtualenvs" >> ~/.bash_profile
+echo "export PROJECT_HOME=~/webapps" >> ~/.bash_profile
 echo "export PIP_VIRTUALENV_BASE=$WORKON_HOME" >> ~/.bash_profile
 echo "export PIP_RESPECT_VIRTUALENV=true" >> ~/.bash_profile
-echo "if [ -f $HOME/bin/virtualenvwrapper.sh ]; then" >> ~/.bash_profile
-echo "    source $HOME/bin/virtualenvwrapper.sh" >> ~/.bash_profile
-echo "fi"
+echo "if [ -f ~/bin/virtualenvwrapper.sh ]; then" >> ~/.bash_profile
+echo "    source ~/bin/virtualenvwrapper.sh" >> ~/.bash_profile
+echo "fi" >> ~/.bash_profile
 ```
 
 **Set-up git**
 
-Create a Git application on Webfaction...
+Create a Git application on Webfaction called **```git```**.
 
-Then
+Then create a new git repo and set up a post-receive hook so that whenever
+you push to that repo the code is checked out under ```~/webapps/{{ project_name }}/app``` and is ready to start serving.
 
 ```
-git init --bare ~/webapps/git/repos/{{ project_name }}.git
-touch ~/webapps/git/{{ project_name }}.git/hooks/post-receive
-echo "#!/bin/sh" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "echo 'Executing post-receive'" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "APP_DIR=$HOME/webapps/{{ project_name }}" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "GIT_WORK_TREE=$APP_DIR/app git checkout -f" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "GIT_WORK_TREE=$APP_DIR/app git reset --hard" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "rm $APP_DIR/app/app/settings/development.py" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "source $HOME/bin/virtualenvwrapper.sh" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "workon {{ project_name }}" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "python $APP_DIR/app/manage.py compress" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "python $APP_DIR/app/manage.py collectstatic  --noinput" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-echo "deactivate" >> ~/webapps/git/{{ project_name }}/hooks/post-receive
-chmod +x ~/webapps/git/{{ project_name }}/hooks/post-receive
-mkdir ~/webapps/{{ project_name }}/app
+GIT_REPO=$HOME'/webapps/git/repos/{{ project_name }}.git' 
+git init --bare $GIT_REPO
+touch $GIT_REPO/hooks/post-receive
+echo "#!/bin/sh" >> $GIT_REPO/hooks/post-receive
+echo "echo 'Executing post-receive'" >> $GIT_REPO/hooks/post-receive
+echo "APP_DIR=$HOME/webapps/{{ project_name }}" >> $GIT_REPO/hooks/post-receive
+echo "GIT_WORK_TREE=\$APP_DIR/app git checkout -f" >> $GIT_REPO/hooks/post-receive
+echo "GIT_WORK_TREE=\$APP_DIR/app git reset --hard" >> $GIT_REPO/hooks/post-receive
+echo "rm \$APP_DIR/app/app/settings/development.py" >> $GIT_REPO/hooks/post-receive
+chmod +x $GIT_REPO/hooks/post-receive
+rm -r $HOME/webapps/git/repos/proj.git
 ```
+
+echo "source $HOME/bin/virtualenvwrapper.sh" >> $GIT_REPO/hooks/post-receive
+echo "workon env_{{ project_name }}" >> $GIT_REPO/hooks/post-receive
+echo "python $APP_DIR/app/manage.py compress" >> $GIT_REPO/hooks/post-receive
+echo "python $APP_DIR/app/manage.py collectstatic  --noinput" >> $GIT_REPO/hooks/post-receive
+echo "deactivate" >> $GIT_REPO/hooks/post-receive
 
 **Create a new virtual env on the server**
 
 On the server:
 
 ```
-mkvirtualenv {{ project_name }}
-workon {{ project_name }}
-```
-
-**Install requirements**
-
-```
-cd $HOME/webapps/{{ project_name }}/app
-pip install -r requirements.txt
+source ~/bin/virtualenvwrapper.sh
+mkvirtualenv env_{{ project_name }}
+workon env_{{ project_name }}
 ```
 
 **Create and set-up the Database**
 
 On Webfaction ..
 
-On your settings/productions.py file ...
+On your settings/production.py file change the ```DATABASE``` entry with the
+credentials given by Webfaction. You will need to specify the ```NAME```, 
+```USER```, and ```PASSWORD``` entries.
 
 **Specify AWS Credentials and S3 bucket name**
 
-On your settings/productions.py file ...
+On your settings/productions.py file change the ```AMAZONS3``` entry with your
+Amazon Security Credentials. You will need to specify your ```ACCESS_KEY_ID```,
+your ```SECRET_ACCESS_KEY```, and the name of the ```BUCKET``` where you want 
+to upload your static files.
 
-**Edit the server config**
+**Note** that bucket names are global on Amazon's servers so you need to pick
+a unique name for that. 
 
-Update the ```apache2/conf/httpd.ini``` file..
+**Change your apache config file to match your project settings**
 
+**Important*:*
+* Replace the ```YOUR_WEBFACTION_USERNAME``` portion of the  following line 
+with your username on webfaction (the name of your account).
+
+* Replace the ```YOUR_WEBFACTION_APP_PORT``` portion of the following line
+with the port of your application. It's the number in brackets next to your app's name on http://my.webfaction.com/applications.
+
+On your machine:
+
+```
+sed 's/__/YOUR_WEBFACTION_USERNAME/g' webfaction/apache.conf > webfaction/httpd.conf
+sed 's/00000/YOUR_WEBFACTION_APP_PORT/g' webfaction/apache.conf > webfaction/httpd.conf
+rm webfaction/apache.conf
+```
 
 **Push your local code to the server**
 
-On your machine in your project's dictory add the remote repo:
+*On your machine from within your project's directory*
+
+Create a new repo if you haven't done so already:
 
 ```
-git remote add production ssh://rudasn@rudasn.webfactional.com/~/webapps/git/repos/{{ project_name }}
+git init
+git commit -am 'First commit'
 ```
 
-And the push your code
+Add the remote git repo we created above.
 
 ```
-git push production master
+git remote add wf ssh://rudasn@rudasn.webfactional.com/~/webapps/git/repos/{{ project_name }}.git
+```
+
+Push the code to webfaction's server.
+
+```
+git push wf master
+```
+
+**Move the apache configuration file to the appropriate folder.**
+
+*On the server*
+
+```
+mv ~/webapps/{{ project_name }}/app/webfaction/httpd.conf ~/webapps/{{ project_name }}/apache2/conf
+```
+
+
+**Install requirements**
+
+*On the server*
+
+```
+cd ~/webapps/{{ project_name }}/app
+pip install -r requirements.txt
 ```
 
 **Initialize the database**
 
-Back on the server
+*On the server*
+
+```
+cd ~/webapps/{{ project_name }}/app
+```
+
+Create database tables.
 
 ```
 python manage.py syncdb
+```
+
+You will be asked to create an admin user. Go ahead and do that.
+
+Then set-up database migrations.
+
+```
 python manage.py migrate
 ```
 
-
-**Finally, restart the server**
+**(Re)Start the server**
 
 ```
-$HOME/webapps/{{ project_name }}/apache2/bin/restart
+~/webapps/{{ project_name }}/apache2/bin/restart
 ```
+
+**Set-up a website and domain**
+
+On Webfaction's control panel..
 
 **YAY!**
 
