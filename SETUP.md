@@ -230,11 +230,16 @@ chmod +x $GIT_REPO/hooks/post-receive
 rm -r $HOME/webapps/git/repos/proj.git
 ```
 
+If you want to auto compress and move the static files to Amazon S3 on every
+push (not advised) also do the following:
+
+```
 echo "source $HOME/bin/virtualenvwrapper.sh" >> $GIT_REPO/hooks/post-receive
 echo "workon env_{{ project_name }}" >> $GIT_REPO/hooks/post-receive
 echo "python $APP_DIR/app/manage.py compress" >> $GIT_REPO/hooks/post-receive
 echo "python $APP_DIR/app/manage.py collectstatic  --noinput" >> $GIT_REPO/hooks/post-receive
 echo "deactivate" >> $GIT_REPO/hooks/post-receive
+```
 
 **Create a new virtual env on the server**
 
@@ -289,6 +294,7 @@ Create a new repo if you haven't done so already:
 
 ```
 git init
+git add {{ project_name }} requirements webfaction .gitignore manage.py README.md SETUP.md requirements.txt wsgi.py
 git commit -am 'First commit'
 ```
 
@@ -342,6 +348,18 @@ Then set-up database migrations.
 
 ```
 python manage.py migrate
+```
+
+Compress JS & CSS:
+
+```
+python manage.py compress
+```
+
+Copy files from /assets/ to /static/ and push them to Amazon S3:
+
+```
+python manage.py collectstatic --noinput
 ```
 
 **(Re)Start the server**
