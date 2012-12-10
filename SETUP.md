@@ -225,7 +225,7 @@ echo "echo 'Executing post-receive'" >> $GIT_REPO/hooks/post-receive
 echo "APP_DIR=$HOME/webapps/{{ project_name }}" >> $GIT_REPO/hooks/post-receive
 echo "GIT_WORK_TREE=\$APP_DIR/app git checkout -f" >> $GIT_REPO/hooks/post-receive
 echo "GIT_WORK_TREE=\$APP_DIR/app git reset --hard" >> $GIT_REPO/hooks/post-receive
-echo "rm \$APP_DIR/app/app/settings/development.py" >> $GIT_REPO/hooks/post-receive
+echo "rm \$APP_DIR/app/{{ project_name }}/settings/development.py" >> $GIT_REPO/hooks/post-receive
 chmod +x $GIT_REPO/hooks/post-receive
 rm -r $HOME/webapps/git/repos/proj.git
 ```
@@ -281,8 +281,8 @@ with the port of your application. It's the number in brackets next to your app'
 On your machine:
 
 ```
-sed 's/__/YOUR_WEBFACTION_USERNAME/g' webfaction/apache.conf > webfaction/httpd.conf
-sed 's/00000/YOUR_WEBFACTION_APP_PORT/g' webfaction/apache.conf > webfaction/httpd.conf
+sed 's/__/YOUR_WEBFACTION_USERNAME/g' webfaction/apache.conf > webfaction/apache2.conf
+sed 's/00000/YOUR_WEBFACTION_APP_PORT/g' webfaction/apache2.conf > webfaction/httpd.conf
 rm webfaction/apache.conf
 ```
 

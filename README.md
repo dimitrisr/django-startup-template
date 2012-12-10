@@ -47,12 +47,6 @@ meaningful.
 mkvirtualenv env_my_django_project
 ```
 
-
-```
-workon env_my_django_project
-```
-
-
 **Download and install the latest stable version of Django (1.4)**
 
 ```
@@ -72,3 +66,5 @@ This command will create a new folder named **```app```** in which your Django
 project will live.
 
 Now browse to the new project's directory and follow the instructions in **SETUP.md**.
+
+django-admin.py startproject --template=../django-startup-template/ --extension=py,md,conf,.gitignore eheterocycles; cd eheterocycles
