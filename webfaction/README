@@ -1,7 +1,0 @@
-httpd.conf
-==========
-
-Change all instances of ```DJANGO_APP_NAME``` to the name of your Django
-application, as defined from Webfaction's control panel.
-
-Change all instances of ``USERNAME`` to your Webfaction account username.
