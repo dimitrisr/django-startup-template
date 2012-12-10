@@ -1,11 +1,17 @@
 Set-up {{ project_name }}
 -------------------------
+**Move the local settings file**
+
+```
+mv {{ project_name }}/is_local.py {{ project_name }}/settings/local.py
+```
 
 **Install dependencies**
 
 ```
 pip install -r requirements/development.txt
 ```
+
 This will install Django 1.4 and all other packages that you will be using.
 It may take some time.
 

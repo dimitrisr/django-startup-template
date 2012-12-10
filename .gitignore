@@ -19,4 +19,4 @@ build
 *.db
 
 # Local
-is_local.py
+{{ project_name }}/settings/local.py
