@@ -3,6 +3,25 @@
 from common import *
 from S3 import CallingFormat
 
+
+########## DATABASE CONFIGURATION
+DATABASE = {
+    'NAME': '',
+    'USER': '',
+    'PASSWORD': ''
+}
+########## END DATABASE CONFIGURATION
+
+
+########## AMAZON S3 CONFIGURATION
+AMAZONS3 = {
+    'ACCESS_KEY_ID': '',
+    'SECRET_ACCESS_KEY': '',
+    'BUCKET': '{{ project_name }}_django_static_storage'
+}
+########## AMAZON S3 CONFIGURATION
+
+
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -34,9 +53,9 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': DATABASE.get('NAME'),
+        'USER': DATABASE.get('USER'),
+        'PASSWORD': DATABASE.get('PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
@@ -68,9 +87,9 @@ STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoSto
 AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = ''
+AWS_ACCESS_KEY_ID = AMAZONS3.get('ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = AMAZONS3.get('SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = AMAZONS3.get('BUCKET', '')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
 

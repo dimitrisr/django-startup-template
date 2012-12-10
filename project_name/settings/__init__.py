@@ -1,7 +1,7 @@
 import os
 
 try:
-    import is_local
+    import local
     from development import *
 except:
     from production import *
