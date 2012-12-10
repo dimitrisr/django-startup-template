@@ -107,3 +107,7 @@ COMPRESS_JS_FILTERS += [
 ]
 ########## END COMPRESSION CONFIGURATION
 
+########## GENERIC CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#prepend-www
+PREPEND_WWW = True
+########## GENERIC CONFIGURATION
