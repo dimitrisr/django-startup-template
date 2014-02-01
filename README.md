@@ -1,7 +1,7 @@
 django-startup-template
 =======================
 
-A Django 1.4 template to kickstart a new web app.
+A Django 1.6 template to kickstart a new web app.
 
 Features
 ========
