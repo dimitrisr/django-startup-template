@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """Development settings and globals."""
 
 from os.path import join, normpath

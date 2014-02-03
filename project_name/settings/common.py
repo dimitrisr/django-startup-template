@@ -3,6 +3,9 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
+########## CKEDITOR
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+########## END CKEDITOR
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -189,6 +192,15 @@ THIRD_PARTY_APPS = (
 
     # Static file management:
     'compressor',
+
+    # Thumbs
+    'sorl.thumbnail',
+
+    # Memcache
+    'django_memcached',
+
+    # Ckeditor
+    'ckeditor',
 )
 
 LOCAL_APPS = (
