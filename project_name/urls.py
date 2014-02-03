@@ -12,6 +12,12 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
+    # Memcached
+    url(r'^cache/', include('django_memcached.urls')),
+
+    # Ckeditor
+    url(r'^ckeditor/', include('ckeditor.urls')),
+
     # make sure you delete this entry
     url(r'^/?$', 'apps.hello_world.views.hello'),
 )
