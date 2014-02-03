@@ -1,7 +1,7 @@
 django-startup-template
 =======================
 
-A Django 1.6 template to kickstart a new web app. ***ON-GOING UPGRADE*** Not yet working for v1.6, only for v1.4. 
+A Django 1.6 template to kickstart a new web app. 
 
 Features
 ========
@@ -47,7 +47,7 @@ meaningful.
 mkvirtualenv env_my_django_project
 ```
 
-**Download and install the latest stable version of Django (1.4)**
+**Download and install the latest stable version of Django (1.6)**
 
 ```
 pip install django
@@ -59,7 +59,7 @@ This may take a few minutes.
 switch to the new application folder
 
 ```
-django-admin.py startproject --template=https://github.com/rudasn/django-startup-template/zipball/master --extension=py,md,conf,.gitignore app; cd app
+django-admin.py startproject --template=https://github.com/dimitrisr/django-startup-template/zipball/master --extension=py,md,conf,.gitignore app; cd app
 ```
 
 This command will create a new folder named **```app```** in which your Django 
