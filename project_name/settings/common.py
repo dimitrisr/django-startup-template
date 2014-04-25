@@ -3,8 +3,45 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
+########## MEELO SETTINGS
+
+MEELO_TEMPLATE_BASE = 'rudaslab/base.html'
+
+########## END MEELO SETTINGS
+
 ########## CKEDITOR
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            [ 
+                'Format',
+            ],
+            [
+                'Image', 
+            ],
+            [
+                'Bold', 'Italic', 'Underline',
+                '-', 'Link', 'Unlink', 
+                '-', 'BulletedList', 'NumberedList',
+            ],
+            [   'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+            ],
+            
+            [    
+
+                'PasteText','PasteFromWord',
+            ],
+            [  
+               'HorizontalRule', '-', 'ShowBlocks','Preview','-','Source',
+            ]
+        ],
+        'height': 450,
+        'toolbarCanCollapse': False,
+        'linkShowTargetTab': False,
+        'linkShowAdvancedTab': False,
+    }
+}
 ########## END CKEDITOR
 
 ########## PATH CONFIGURATION
