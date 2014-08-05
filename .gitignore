@@ -19,4 +19,6 @@ build
 *.db
 
 # Local
+.DS_Store
 {{ project_name }}/settings/local.py
+{{ project_name }}/migrations/
