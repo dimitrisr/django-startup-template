@@ -254,6 +254,14 @@ footer {
   }
 }
 
+pre {
+    font-size: 85%;
+    position: relative;
+    max-width: 100%;
+    overflow: auto;
+    border: 1px solid #487858;
+    background-color: #E0FFB8;
+}
 
 small {
     color: #999;
