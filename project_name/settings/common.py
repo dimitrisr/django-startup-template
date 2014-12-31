@@ -1,13 +1,10 @@
+# -*- coding: utf-8 -*-
+
 """Common settings and globals."""
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
-########## MEELO SETTINGS
-
-MEELO_TEMPLATE_BASE = 'rudaslab/base.html'
-
-########## END MEELO SETTINGS
 
 ########## CKEDITOR
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -224,8 +221,6 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    # Database migration helpers:
-    'south',
 
     # Static file management:
     'compressor',

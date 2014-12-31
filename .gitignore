@@ -22,3 +22,7 @@ build
 .DS_Store
 {{ project_name }}/settings/local.py
 {{ project_name }}/migrations/
+
+# Sublime project
+*.sublime-project
+*.sublime-workspace
