@@ -5,3 +5,4 @@ sorl-thumbnail==12.2
 django-memcached2==0.2
 django-ckeditor-updated==4.4.4
 psycopg2==2.5.4
+django-debug-toolbar==1.2.2
