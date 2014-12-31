@@ -338,7 +338,7 @@ em.aws-secret {
 
 .step .local,
 .step .remote {
-    width: 55%;
+    width: 95%;
     clear: both;
     position: relative;
     padding: 30px 0 16px;

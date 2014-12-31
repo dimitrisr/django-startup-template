@@ -103,7 +103,7 @@
         <h3>Database</h3>
         <div class="step">
             <p>Create and set-up a PostgreSQL database.</p>
-            <div class="remote">
+            <pre class="remote">
                 <p>Go to the <a href="https://my.webfaction.com/new-database" target="webfaction">New Database</a> page.</p>
                 <p><strong>Name</strong> can be <input type="text" placeholder="Database Name" class="project-name" data-prefix="db_" title="Database Name" data-bind="db-name">.</p>
                 <p><strong>Database type</strong> should be <em>PostgreSQL</em>.</p>
@@ -112,53 +112,53 @@
                 <p><strong>Password</strong> can be <input type="text" placeholder="Password" title="Database Password" data-bind="db-password">
                     <br><small>(This was randomly generated. <a id="generate-password" href="">Generate another one</a>.)</small></p>
                 <p>Click <strong>Save</strong></p>
-            </div>
+            </pre>
         </div>
         <h3>Website &amp; Domain</h3>
         <div class="step">
             <p>Create a website and a domain. It's best to do this now as it takes some time for the domains to kick in. Hopefuly by the time you have finished with the rest of the steps everything should be working.</p>
-            <div class="remote">
+            <pre class="remote">
                 <p>Go to the <a href="https://my.webfaction.com/new-website" target="webfaction">New Website</a> page.</p>
                 <p><strong>Name</strong> can be <em class="project-name"></em>.</p>
                 <p>Create two new <strong>Domains</strong>.<p>
                 <p><em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em> and www.<em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em>.</p>
                 <p>For <strong>Contents</strong> choose <em>Reuse an existing application</em> and select <em class="project-name"></em> from the list.</p>
                 <p>Click <strong>Save</strong>.</p>
-            </div>
+            </pre>
         </div>
         <h3>Git</h3>
         <p class="note"><strong>Skip</strong> this section if you already have a git application running on your server named <strong><code>git</code></strong>.</p>
         <div class="step">
             <p>Create a Git application to host and deploy our host.</p>
-            <div class="remote">
+            <pre class="remote">
                 <p>Go to the <a href="https://my.webfaction.com/new-application" target="webfaction">New Application</a> page.</p>
                 <p><strong>Name</strong> should be <em>git</em>.</p>
                 <p><strong>App Category</strong> should be <em>Git</em>.</p>
                 <p><strong>App Type</strong> should be <em>Git 1.7.4.1</em>.</p>
                 <p>Click <strong>Save</strong></p>
-            </div>
+            </pre>
         </div>
         <h3>Amazon Web Services S3</h3>
         <div class="step">
             <p>Create a new bucket.</p>
-            <div class="remote">
+            <pre class="remote">
                 <p>Go to your <a href="https://console.aws.amazon.com/s3/home" target="aws">AWS S3 console</a>.</p>
                 <p>Click on <strong>Create Bucket</strong>.</p>
                 <p><strong>Bucket Name</strong> can be <input type="text" class="project-name" placeholder="AWS S3 Bucket Name" title="AWS S3 Bucket Name" data-suffix="_aws_static" data-bind="aws-bucket">.</p>
                 <p>Once the bucket is created select it from the list and click on <strong>Properties</strong>.</p>
                 <p>Create a new <strong>Permissions</strong> entry allowing <em>Everyone</em> to just have <em>View Permissions</em>.</p>
-            </div>
+            </pre>
             <p>Create a new user for this project.</p>
-            <div class="remote">
+            <pre class="remote">
                 <p>Go to <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
                 <p><strong>Create</strong> a new user named <em class="project-name"></em>. Make sure the option to "<em>Generate an access key for each User</em>" is checked.</p>
                 <p>Once the user is created click on "<em>Show User Security Credentials</em>" and copy &amp; paste them here.</p>
                 <p><input type="text" placeholder="AWS S3 User Key" title="AWS S3 User Key" data-bind="aws-key"></p>
             <p><input type="text" placeholder="AWS S3 User Secret" title="AWS S3 User Secret" data-bind="aws-secret"></p>
-            </div>
+            </pre>
             <p>Assign permissions to the user you just created to manage the project's bucket.</p>
 
-            <div class="remote">
+            <pre class="remote">
                 <p>Go back to the <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
                 <p>Select the <em class="project-name"></em> user.</p>
                 <p>Click on <em>Permissions</em> (on the tabs at the bottom of the page).</p>
@@ -174,7 +174,7 @@
         }]
 }</code></pre>
                 <p>This grants full access to the <em class="project-name"></em> user <strong>just</strong> on the <em class="aws-bucket"></em> bucket.</p>
-            </div>
+            </pre>
         </div>
 
     <h2>Local Set-up</h2>
