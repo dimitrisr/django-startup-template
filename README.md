@@ -23,4 +23,4 @@ Requirements
 
 Installation
 =======
-[Follow the instructions here](http://rudasn.github.io/django-startup-template/)
+[Follow the instructions here](http://dimitrisr.github.io/django-startup-template/)
