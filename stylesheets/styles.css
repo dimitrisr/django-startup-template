@@ -253,3 +253,104 @@ footer {
     color:#444;
   }
 }
+
+
+small {
+    color: #999;
+}
+
+input[type="text"],
+input[type="number"] {
+    font: inherit;
+    font-size: 90%;
+    color: #326342;
+    padding: 0.4em;
+    width: 40%;
+}
+
+em.project-name,
+em.webfaction-username,
+em.webfaction-ip,
+em.webfaction-port,
+em.db-name,
+em.db-user,
+em.db-password,
+em.random-password,
+em.aws-bucket,
+em.aws-key,
+em.aws-secret {
+    font-family: monospace;
+    padding: 0.2em;
+    color: #092e20;
+    background-color: #94da3a;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.note {
+    padding: 0.6em;
+    border: 2px solid orange;
+    background-color: #ffffcc;
+}
+
+.instructions h1,
+.instructions h2,
+.instructions h3,
+.instructions h4,
+.instructions h5,
+.instructions h6,
+.instructions p,
+.instructions ol,
+.instructions ul,
+.instructions pre {
+    clear: both;
+}
+
+.step {
+    overflow: hidden;
+}
+
+.step .local {
+    float: left;
+}
+
+.step .local:before {
+    content: 'Locally';
+}
+
+.step .remote {
+    float: right;
+}
+
+.step .remote:before {
+    content: 'Remotely';
+}
+
+.step .local,
+.step .remote {
+    width: 55%;
+    clear: both;
+    position: relative;
+    padding: 30px 0 16px;
+
+}
+
+pre[data-file]:before,
+.step .local:before,
+.step .remote:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.2em 0.4em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #fff;
+    background-color: #487858;
+    display: block;
+}
+
+pre[data-file]:before {
+    content: attr(data-file) !important;
+}
