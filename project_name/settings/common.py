@@ -223,7 +223,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
 
     # Static file management:
-    'compressor',
+    # 'compressor',
 
     # Thumbs
     'sorl.thumbnail',
