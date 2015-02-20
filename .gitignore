@@ -26,3 +26,7 @@ build
 # Sublime project
 *.sublime-project
 *.sublime-workspace
+
+# Migrations
+migrations/
+migrations/*
