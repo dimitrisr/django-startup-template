@@ -12,7 +12,6 @@ functionality:
 2. django-storage: Static file storage on Amazon S3.
 3. django-compress: Pre-process and Compress CSS & JavaScript.
 4. django-debug-toolbar: Awesome tool to debug your django site locally.
-5. south: Painless database schema migrations.
 
 Requirements
 =============
