@@ -5,6 +5,12 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
+########## GRAPELLI
+GRAPPELLI_ADMIN_TITLE = '{{ project_name }}'
+
+########## FILE_BROWSER
+FILEBROWSER_SEARCH_TRAVERSE = True
+FILEBROWSER_CONVERT_FILENAME = True
 
 ########## CKEDITOR
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -215,6 +221,12 @@ DJANGO_APPS = (
     # Useful template tags:
     'django.contrib.humanize',
 
+    # grapelli
+    'grappelli',
+
+    # file browser
+    'filebrowser',
+    
     # Admin panel and documentation:
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -233,6 +245,8 @@ THIRD_PARTY_APPS = (
 
     # Ckeditor
     'ckeditor',
+
+
 )
 
 LOCAL_APPS = (
