@@ -14,6 +14,12 @@ DATABASE = {
 }
 ########## END DATABASE CONFIGURATION
 
+########## ALLOWED HOSTS
+ALLOWED_HOSTS = [
+        # .domain.com,
+]
+
+########## END ALLOWED HOSTS
 
 ########## AMAZON S3 CONFIGURATION
 # AMAZONS3 = {

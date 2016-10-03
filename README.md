@@ -1,17 +1,16 @@
 django-startup-template
 =======================
 
-A Django 1.7.1 template to kickstart a new web app on a Webfaction server. 
+A Django 1.10.1 template to kickstart a new web app on a Webfaction server. 
 
 Features
 ========
 Out of the box this project template provides the following packages and 
 functionality:
 
-1. Local and Production settings files.
-2. django-storage: Static file storage on Amazon S3.
-3. django-compress: Pre-process and Compress CSS & JavaScript.
-4. django-debug-toolbar: Awesome tool to debug your django site locally.
+- Local and Production settings files.
+- django-compress: Pre-process and Compress CSS & JavaScript.
+- django-debug-toolbar: Awesome tool to debug your django site locally.
 
 Requirements
 =============
