@@ -3,8 +3,6 @@
 """Production settings and globals."""
 
 from common import *
-#from S3 import CallingFormat
-
 
 ########## DATABASE CONFIGURATION
 DATABASE = {
@@ -20,14 +18,6 @@ ALLOWED_HOSTS = [
 ]
 
 ########## END ALLOWED HOSTS
-
-########## AMAZON S3 CONFIGURATION
-# AMAZONS3 = {
-#     'ACCESS_KEY_ID': '',
-#     'SECRET_ACCESS_KEY': '',
-#     'BUCKET': '{{ project_name }}_django_static_storage'
-# }
-########## AMAZON S3 CONFIGURATION
 
 
 ########## EMAIL CONFIGURATION
@@ -91,49 +81,13 @@ INSTALLED_APPS += (
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-# AWS_ACCESS_KEY_ID = AMAZONS3.get('ACCESS_KEY_ID', '')
-# AWS_SECRET_ACCESS_KEY = AMAZONS3.get('SECRET_ACCESS_KEY', '')
-# AWS_STORAGE_BUCKET_NAME = AMAZONS3.get('BUCKET', '')
-# AWS_AUTO_CREATE_BUCKET = True
-# AWS_QUERYSTRING_AUTH = False
-
-# AWS cache settings, don't change unless you know what you're doing:
-# AWS_EXPIREY = 60 * 60 * 24 * 7
-# AWS_HEADERS = {
-#     'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-#         AWS_EXPIREY)
-# }
 
 STATIC_ROOT = '/home/webapps/{{ project_name }}/'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/' 
 ########## END STORAGE CONFIGURATION
 
-
-########## COMPRESSION CONFIGURATION
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
-# COMPRESS_ENABLED = True
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-# COMPRESS_OFFLINE = True
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
-# COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_CSS_FILTERS
-# COMPRESS_CSS_FILTERS += [
-#     'compressor.filters.cssmin.CSSMinFilter',
-# ]
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_JS_FILTERS
-# COMPRESS_JS_FILTERS += [
-#     'compressor.filters.jsmin.JSMinFilter',
-# ]
-########## END COMPRESSION CONFIGURATION
 
 ########## GENERIC CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#prepend-www

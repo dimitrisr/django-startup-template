@@ -5,47 +5,6 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
-########## GRAPELLI
-GRAPPELLI_ADMIN_TITLE = '{{ project_name }}'
-
-########## FILE_BROWSER
-FILEBROWSER_SEARCH_TRAVERSE = True
-FILEBROWSER_CONVERT_FILENAME = True
-
-########## CKEDITOR
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': [
-            [ 
-                'Format',
-            ],
-            [
-                'Image', 
-            ],
-            [
-                'Bold', 'Italic', 'Underline',
-                '-', 'Link', 'Unlink', 
-                '-', 'BulletedList', 'NumberedList',
-            ],
-            [   'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
-            ],
-            
-            [    
-
-                'PasteText','PasteFromWord',
-            ],
-            [  
-               'HorizontalRule', '-', 'ShowBlocks','Preview','-','Source',
-            ]
-        ],
-        'height': 450,
-        'toolbarCanCollapse': False,
-        'linkShowTargetTab': False,
-        'linkShowAdvancedTab': False,
-    }
-}
-########## END CKEDITOR
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -140,8 +99,7 @@ STATICFILES_DIRS = (
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -225,32 +183,13 @@ DJANGO_APPS = (
     # Useful template tags:
     'django.contrib.humanize',
 
-    # grapelli
-    'grappelli',
-
-    # file browser
-    'filebrowser',
-    
+  
     # Admin panel and documentation:
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
 
 THIRD_PARTY_APPS = (
-
-    # Static file management:
-    # 'compressor',
-
-    # Thumbs
-    'sorl.thumbnail',
-
-    # Memcache
-    'django_memcached',
-
-    # Ckeditor
-    'ckeditor',
-
-
 )
 
 LOCAL_APPS = (
@@ -286,25 +225,6 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'
 ########## END WSGI CONFIGURATION
-
-
-########## COMPRESSION CONFIGURATION
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
-COMPRESS_ENABLED = False
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OUTPUT_DIR
-COMPRESS_OUTPUT_DIR = 'min'
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_CSS_FILTERS
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.template.TemplateFilter',
-]
-
-# See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_JS_FILTERS
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.template.TemplateFilter',
-]
-########## END COMPRESSION CONFIGURATION
 
 
 ########## GENERIC CONFIGURATION

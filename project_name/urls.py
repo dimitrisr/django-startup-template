@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.conf.urls import include, url
-
+from django.conf import settings
 from app.hello_world.views import hello
 
 admin.site.site_header = '{{ project_name }}'
