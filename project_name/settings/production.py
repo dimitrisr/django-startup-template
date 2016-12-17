@@ -85,7 +85,7 @@ CACHES = {
 ########## STORAGE CONFIGURATION
 # See: http://django-storages.readthedocs.org/en/latest/index.html
 INSTALLED_APPS += (
-    'storages',
+    
 )
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
