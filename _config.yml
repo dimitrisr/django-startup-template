@@ -1,8 +1,0 @@
-title: Django startup template
-description: A Django template to kickstart a new web app on Webfaction
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-slate
-
-gems:
-  - jekyll-mentions
