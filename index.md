@@ -1,4 +1,4 @@
-{% include stylesheets/styles.css %}
+
 
 ### Requirements
 * An account on [Webfaction](http://www.webfaction.com?aid=30409) <small>*Affiliate link*</small>
