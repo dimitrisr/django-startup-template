@@ -397,6 +397,7 @@ Generate personalised instructions by providing some basic details. **No data is
         <p>Repeat steps ..</p>
     </section>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
         var inputs = $('input[data-bind]').on('change', function(e) {
             var $this = $(this),
