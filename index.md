@@ -33,99 +33,106 @@ Generate personalised instructions by providing some basic details. **No data is
 </div>
 
 <div class="step">
-            <p>Download and install the latest stable version of Django.</p>
-<pre class="local">
-    <code>pip install django</code></pre>
-        </div>
-        <div class="step">
-            <p>Create a new Django project based on this repo in a new <em class="project-name"></em> folder.</p>
-<pre class="local">
-    <code>django-admin.py startproject --template=https://github.com/dimitrisr/django-startup-template/zipball/master --extension=py,md,conf,.gitignore <em class="project-name"></em></code>
-    <code>cd <em class="project-name"></em></code></pre>
-        </div>
-        <div class="step">
-            <p>Install dependencies.</p>
-<pre class="local">
-    <code>pip install -r requirements/development.txt</code></pre>
-        </div>
-        <h2>Services</h2>
-        <h3>Application</h3>
-        <div class="step">
-            <p>Create a new Django application on webfaction called <em class="project-name"></em>.</p>
-            <pre class="remote">
-                <p>Go to the <a href="https://my.webfaction.com/new-application" target="webfaction">New Application</a> page.</p>
-                <p><strong>Name</strong> should be <em class="project-name"></em>.</p>
-                <p><strong>App Category</strong> should be <em>Django</em>.</p>
-                <p><strong>App Type</strong> should be <em>Django 1.X.X</em>.</p>
-                <p>Click <strong>Save</strong></p>
-                <p>Once the application is created look for its <strong>Port</strong> and type it here <input type="text" placeholder="Port" title="Port" data-bind="webfaction-port">.</p>
-            </pre>
-        </div>
-        <h3>Database</h3>
-        <div class="step">
-            <p>Create and set-up a PostgreSQL database.</p>
-            <pre class="remote">
-                <p>Go to the <a href="https://my.webfaction.com/new-database" target="webfaction">New Database</a> page.</p>
-                <p><strong>Name</strong> can be <input type="text" placeholder="Database Name" class="project-name" data-prefix="db_" title="Database Name" data-bind="db-name">.</p>
-                <p><strong>Database type</strong> should be <em>PostgreSQL</em>.</p>
-                <p>Create a new <strong>Database Owner</strong>.</p>
-                <p><strong>Username</strong> can be <input type="text" placeholder="Database User" class="project-name" data-prefix="db_" title="Database User" data-bind="db-user">.</p>
-                <p><strong>Password</strong> can be <input type="text" placeholder="Password" title="Database Password" data-bind="db-password">
-                    <br><small>(This was randomly generated. <a id="generate-password" href="">Generate another one</a>.)</small></p>
-                <p>Click <strong>Save</strong></p>
-            </pre>
-        </div>
-        <h3>Website &amp; Domain</h3>
-        <div class="step">
-            <p>Create a website and a domain. It's best to do this now as it takes some time for the domains to kick in. Hopefuly by the time you have finished with the rest of the steps everything should be working.</p>
-            <pre class="remote">
-                <p>Go to the <a href="https://my.webfaction.com/new-website" target="webfaction">New Website</a> page.</p>
-                <p><strong>Name</strong> can be <em class="project-name"></em>.</p>
-                <p>Create two new <strong>Domains</strong>.<p>
-                <p><em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em> and www.<em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em>.</p>
-                <p>For <strong>Contents</strong> choose <em>Reuse an existing application</em> and select <em class="project-name"></em> from the list.</p>
-                <p>Click <strong>Save</strong>.</p>
-            </pre>
-        </div>
-        <h3>Git</h3>
-        <p class="note"><strong>Skip</strong> this section if you already have a git application running on your server named <strong><code>git</code></strong>.</p>
-        <div class="step">
-            <p>Create a Git application to host and deploy our host.</p>
-            <pre class="remote">
-                <p>Go to the <a href="https://my.webfaction.com/new-application" target="webfaction">New Application</a> page.</p>
-                <p><strong>Name</strong> should be <em>git</em>.</p>
-                <p><strong>App Category</strong> should be <em>Git</em>.</p>
-                <p><strong>App Type</strong> should be <em>Git 1.7.4.1</em>.</p>
-                <p>Click <strong>Save</strong></p>
-            </pre>
-        </div>
-        <h3>Amazon Web Services S3</h3>
-        <div class="step">
-            <p>Create a new bucket.</p>
-            <pre class="remote">
-                <p>Go to your <a href="https://console.aws.amazon.com/s3/home" target="aws">AWS S3 console</a>.</p>
-                <p>Click on <strong>Create Bucket</strong>.</p>
-                <p><strong>Bucket Name</strong> can be <input type="text" class="project-name" placeholder="AWS S3 Bucket Name" title="AWS S3 Bucket Name" data-suffix="_aws_static" data-bind="aws-bucket">.</p>
-                <p>Once the bucket is created select it from the list and click on <strong>Properties</strong>.</p>
-                <p>Create a new <strong>Permissions</strong> entry allowing <em>Everyone</em> to just have <em>View Permissions</em>.</p>
-            </pre>
-            <p>Create a new user for this project.</p>
-            <pre class="remote">
-                <p>Go to <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
-                <p><strong>Create</strong> a new user named <em class="project-name"></em>. Make sure the option to "<em>Generate an access key for each User</em>" is checked.</p>
-                <p>Once the user is created click on "<em>Show User Security Credentials</em>" and copy &amp; paste them here.</p>
-                <p><input type="text" placeholder="AWS S3 User Key" title="AWS S3 User Key" data-bind="aws-key"></p>
-            <p><input type="text" placeholder="AWS S3 User Secret" title="AWS S3 User Secret" data-bind="aws-secret"></p>
-            </pre>
-            <p>Assign permissions to the user you just created to manage the project's bucket.</p>
+    <p>Download and install the latest stable version of Django.</p>
+    <pre class="local">
+        <code>pip install django</code>
+    </pre>
+</div>
 
-            <pre class="remote">
-                <p>Go back to the <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
-                <p>Select the <em class="project-name"></em> user.</p>
-                <p>Click on <em>Permissions</em> (on the tabs at the bottom of the page).</p>
-                <p>Click on <em>Attach User Policy</em> and select <em>Custom Policy</em>.</p>
-                <p><strong>Policy Name</strong> can be something like <em>S3FullBucketPermissions<em class="aws-bucket"></em></em></p>
-                <p><strong>Policy Document</strong> should be:</p>
+<div class="step">
+    <p>Create a new Django project based on this repo in a new <em class="project-name"></em> folder.</p>
+    <pre class="local">
+        <code>django-admin.py startproject --template=https://github.com/dimitrisr/django-startup-template/zipball/master --extension=py,md,conf,.gitignore <em class="project-name"></em>
+        </code>
+        <code>cd <em class="project-name"></em></code>
+    </pre>
+</div>
+
+<div class="step">
+    <p>Install dependencies.</p>
+    <pre class="local">
+        <code>pip install -r requirements/development.txt</code>
+    </pre>
+</div>
+
+###Services
+<h3>Application</h3>
+<div class="step">
+<p>Create a new Django application on webfaction called <em class="project-name"></em>.</p>
+<pre class="remote">
+    <p>Go to the <a href="https://my.webfaction.com/new-application" target="webfaction">New Application</a> page.</p>
+    <p><strong>Name</strong> should be <em class="project-name"></em>.</p>
+    <p><strong>App Category</strong> should be <em>Django</em>.</p>
+    <p><strong>App Type</strong> should be <em>Django 1.X.X</em>.</p>
+    <p>Click <strong>Save</strong></p>
+    <p>Once the application is created look for its <strong>Port</strong> and type it here <input type="text" placeholder="Port" title="Port" data-bind="webfaction-port">.</p>
+</pre>
+</div>
+<h3>Database</h3>
+<div class="step">
+<p>Create and set-up a PostgreSQL database.</p>
+<pre class="remote">
+    <p>Go to the <a href="https://my.webfaction.com/new-database" target="webfaction">New Database</a> page.</p>
+    <p><strong>Name</strong> can be <input type="text" placeholder="Database Name" class="project-name" data-prefix="db_" title="Database Name" data-bind="db-name">.</p>
+    <p><strong>Database type</strong> should be <em>PostgreSQL</em>.</p>
+    <p>Create a new <strong>Database Owner</strong>.</p>
+    <p><strong>Username</strong> can be <input type="text" placeholder="Database User" class="project-name" data-prefix="db_" title="Database User" data-bind="db-user">.</p>
+    <p><strong>Password</strong> can be <input type="text" placeholder="Password" title="Database Password" data-bind="db-password">
+        <br><small>(This was randomly generated. <a id="generate-password" href="">Generate another one</a>.)</small></p>
+    <p>Click <strong>Save</strong></p>
+</pre>
+</div>
+<h3>Website &amp; Domain</h3>
+<div class="step">
+<p>Create a website and a domain. It's best to do this now as it takes some time for the domains to kick in. Hopefuly by the time you have finished with the rest of the steps everything should be working.</p>
+<pre class="remote">
+    <p>Go to the <a href="https://my.webfaction.com/new-website" target="webfaction">New Website</a> page.</p>
+    <p><strong>Name</strong> can be <em class="project-name"></em>.</p>
+    <p>Create two new <strong>Domains</strong>.<p>
+    <p><em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em> and www.<em class="project-name"></em>.<em class="webfaction-username"></em><em>.webfactional.com</em>.</p>
+    <p>For <strong>Contents</strong> choose <em>Reuse an existing application</em> and select <em class="project-name"></em> from the list.</p>
+    <p>Click <strong>Save</strong>.</p>
+</pre>
+</div>
+<h3>Git</h3>
+<p class="note"><strong>Skip</strong> this section if you already have a git application running on your server named <strong><code>git</code></strong>.</p>
+<div class="step">
+<p>Create a Git application to host and deploy our host.</p>
+<pre class="remote">
+    <p>Go to the <a href="https://my.webfaction.com/new-application" target="webfaction">New Application</a> page.</p>
+    <p><strong>Name</strong> should be <em>git</em>.</p>
+    <p><strong>App Category</strong> should be <em>Git</em>.</p>
+    <p><strong>App Type</strong> should be <em>Git 1.7.4.1</em>.</p>
+    <p>Click <strong>Save</strong></p>
+</pre>
+</div>
+<h3>Amazon Web Services S3</h3>
+<div class="step">
+<p>Create a new bucket.</p>
+<pre class="remote">
+    <p>Go to your <a href="https://console.aws.amazon.com/s3/home" target="aws">AWS S3 console</a>.</p>
+    <p>Click on <strong>Create Bucket</strong>.</p>
+    <p><strong>Bucket Name</strong> can be <input type="text" class="project-name" placeholder="AWS S3 Bucket Name" title="AWS S3 Bucket Name" data-suffix="_aws_static" data-bind="aws-bucket">.</p>
+    <p>Once the bucket is created select it from the list and click on <strong>Properties</strong>.</p>
+    <p>Create a new <strong>Permissions</strong> entry allowing <em>Everyone</em> to just have <em>View Permissions</em>.</p>
+</pre>
+<p>Create a new user for this project.</p>
+<pre class="remote">
+    <p>Go to <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
+    <p><strong>Create</strong> a new user named <em class="project-name"></em>. Make sure the option to "<em>Generate an access key for each User</em>" is checked.</p>
+    <p>Once the user is created click on "<em>Show User Security Credentials</em>" and copy &amp; paste them here.</p>
+    <p><input type="text" placeholder="AWS S3 User Key" title="AWS S3 User Key" data-bind="aws-key"></p>
+<p><input type="text" placeholder="AWS S3 User Secret" title="AWS S3 User Secret" data-bind="aws-secret"></p>
+</pre>
+<p>Assign permissions to the user you just created to manage the project's bucket.</p>
+
+<pre class="remote">
+    <p>Go back to the <a href="https://console.aws.amazon.com/iam/home?#users" target="aws">AWS Identity and Access Management</a> page.</p>
+    <p>Select the <em class="project-name"></em> user.</p>
+    <p>Click on <em>Permissions</em> (on the tabs at the bottom of the page).</p>
+    <p>Click on <em>Attach User Policy</em> and select <em>Custom Policy</em>.</p>
+    <p><strong>Policy Name</strong> can be something like <em>S3FullBucketPermissions<em class="aws-bucket"></em></em></p>
+    <p><strong>Policy Document</strong> should be:</p>
 <pre><code>{
     "Version": "2012-10-17",
         "Statement": [{
