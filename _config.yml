@@ -1,0 +1,8 @@
+title: Django-startup-template
+description: A Django 1.7.1 template to kickstart a new web app.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
