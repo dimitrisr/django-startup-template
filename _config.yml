@@ -1,5 +1,5 @@
-title: Django-startup-template
-description: A Django 1.7.1 template to kickstart a new web app.
+title: Django startup template
+description: A Django template to kickstart a new web app on Webfaction
 google_analytics: 
 show_downloads: true
 theme: jekyll-theme-slate
