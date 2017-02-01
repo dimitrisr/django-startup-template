@@ -1,5 +1,7 @@
+{% include stylesheets/styles.css %}
+
 ### Requirements
-* An account on [Webfaction](http://www.webfaction.com?aid=30409) *Affiliate link*
+* An account on [Webfaction](http://www.webfaction.com?aid=30409) <small>*Affiliate link*</small>
 * [Git](http://git-scm.com/) - version control and easy deployments
 * [Pip](https://pypi.python.org/pypi/pip/) - a python package manager
 * [virtualenv](https://pypi.python.org/pypi/virtualenv/) - python virtual environments
