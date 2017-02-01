@@ -1,5 +1,5 @@
 ### Requirements
-* An account on [Webfaction](http://www.webfaction.com?aid=30409)
+* An account on [Webfaction](http://www.webfaction.com?aid=30409) *Affiliate link*
 * [Git](http://git-scm.com/) - version control and easy deployments
 * [Pip](https://pypi.python.org/pypi/pip/) - a python package manager
 * [virtualenv](https://pypi.python.org/pypi/virtualenv/) - python virtual environments
@@ -7,25 +7,32 @@
 
 ### Project Settings
 Generate personalised instructions by providing some basic details. **No data is being collected nor stored.**
+
 <form>
     <p><input type="text" placeholder="Project Name" title="Project Name" data-bind="project-name"> <small>eg. my_cool_project</small></p>
     <p><input type="text" placeholder="Webfaction Username" title="Webfaction Username" data-bind="webfaction-username"> <small>eg. awesome_dev</small></p>
     <p><input type="text" placeholder="Webfaction Machine IP Address" title="Webfaction Machine IP Address" data-bind="webfaction-ip"> <small>eg. web121.webfaction.com or 75.126.24.79</small></p>
 </form>
-        <h2>Install</h2>
-        <div class="step">
-            <p>Create a new folder on your system and switch to that folder.</p>
-<pre class="local">
-    <code>mkdir <em class="project-name"></em> &amp;&amp; cd <em class="project-name"></em></code></pre>
-        </div>
-        <div class="step">
-            <p>Create and initialize a new virtual environment.</p>
-<pre class="local">
-    <code>source /usr/local/bin/virtualenvwrapper.sh</code>
-    <code>mkvirtualenv env_<em class="project-name"></em></code>
-    <code>workon env_<em class="project-name"></em></code></pre>
-        </div>
-        <div class="step">
+
+### Install
+<div class="step">
+    <p>Create a new folder on your system and switch to that folder.</p>
+    <pre class="local">
+        <code>mkdir <em class="project-name"></em> &amp;&amp; cd <em class="project-name"></em>\
+        </code>
+    </pre>
+</div>
+
+<div class="step">
+    <p>Create and initialize a new virtual environment.</p>
+    <pre class="local">
+        <code>source /usr/local/bin/virtualenvwrapper.sh</code>
+        <code>mkvirtualenv env_<em class="project-name"></em></code>
+        <code>workon env_<em class="project-name"></em></code>
+    </pre>
+</div>
+
+<div class="step">
             <p>Download and install the latest stable version of Django.</p>
 <pre class="local">
     <code>pip install django</code></pre>
