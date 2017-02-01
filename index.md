@@ -1,19 +1,17 @@
-<h2>Requirements</h2>
-<ol>
-    <li>An account on <a href="http://www.webfaction.com?aid=30409" target="webfaction">Webfaction</a> </li>
-    <li><a href="http://git-scm.com/" target="_blank">Git</a> - version control and easy deployments.</li>
-    <li><a href="https://pypi.python.org/pypi/pip/" target="_blank">Pip</a> - a python package manager</li>
-    <li><a href="https://pypi.python.org/pypi/virtualenv/" target="_blank">virtualenv</a> - python virtual environments</li>
-    <li><a href="https://pypi.python.org/pypi/virtualenvwrapper" target="_blank">virtualenvwrapper</a> - python virtual environments made easier</li>
-</ol>
+### Requirements
+* An account on [Webfaction](http://www.webfaction.com?aid=30409)
+* [Git](http://git-scm.com/) - version control and easy deployments
+* [Pip](https://pypi.python.org/pypi/pip/) - a python package manager
+* [virtualenv](https://pypi.python.org/pypi/virtualenv/) - python virtual environments
+* [virtualenvwrapper](https://pypi.python.org/pypi/virtualenvwrapper) - python virtual environments made easier
 
-<h2>Project Settings</h2>
-<p>Generate personalised instructions by providing some basic details. <strong>No data is being collected nor stored.</strong></p>
-        <form>
-            <p><input type="text" placeholder="Project Name" title="Project Name" data-bind="project-name"> <small>eg. my_cool_project</small></p>
-            <p><input type="text" placeholder="Webfaction Username" title="Webfaction Username" data-bind="webfaction-username"> <small>eg. awesome_dev</small></p>
-            <p><input type="text" placeholder="Webfaction Machine IP Address" title="Webfaction Machine IP Address" data-bind="webfaction-ip"> <small>eg. web121.webfaction.com or 75.126.24.79</small></p>
-        </form>
+### Project Settings
+Generate personalised instructions by providing some basic details. **No data is being collected nor stored.**
+<form>
+    <p><input type="text" placeholder="Project Name" title="Project Name" data-bind="project-name"> <small>eg. my_cool_project</small></p>
+    <p><input type="text" placeholder="Webfaction Username" title="Webfaction Username" data-bind="webfaction-username"> <small>eg. awesome_dev</small></p>
+    <p><input type="text" placeholder="Webfaction Machine IP Address" title="Webfaction Machine IP Address" data-bind="webfaction-ip"> <small>eg. web121.webfaction.com or 75.126.24.79</small></p>
+</form>
         <h2>Install</h2>
         <div class="step">
             <p>Create a new folder on your system and switch to that folder.</p>
