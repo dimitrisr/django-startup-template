@@ -31,7 +31,6 @@ Create a default sqlite database, perform initial migrations and start the
 local development server.
 
 ```
-python manage.py syncdb
 python manage.py migrate
 python manage.py runserver
 ```

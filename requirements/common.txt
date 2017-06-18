@@ -1,7 +1,7 @@
-Django==1.10.5
+Django==1.11.2
 
 Unidecode==0.04.20
 
-psycopg2==2.6.2
+psycopg2==2.7.1
 
-django-debug-toolbar==1.6
+django-debug-toolbar==1.8

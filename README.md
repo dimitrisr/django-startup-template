@@ -1,7 +1,7 @@
 django-startup-template
 =======================
 
-A Django 1.10.5 template to kickstart a new web app on a Webfaction server. 
+A Django 1.11.2 template to kickstart a new web app on a Webfaction server. 
 
 Features
 ========
