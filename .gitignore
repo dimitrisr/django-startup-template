@@ -18,6 +18,8 @@ build
 # SQLite3 database files:
 *.db
 
+.idea/*
+
 # Local
 .DS_Store
 {{ project_name }}/settings/local.py
