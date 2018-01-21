@@ -1,7 +1,10 @@
 from django.contrib import admin
-from django.conf.urls import include, url
+from django.conf.urls import include
 from django.conf import settings
-from app.hello_world.views import hello
+from django.urls import re_path
+from django.conf.urls.static import static
+
+from .app.hello_world.views import hello
 
 admin.site.site_header = '{{ project_name }}'
 
@@ -11,15 +14,15 @@ admin.autodiscover()
 # See: https://docs.djangoproject.com/en/dev/topics/http/urls/
 urlpatterns = [
     # Admin panel and documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    re_path(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    re_path(r'^admin/', admin.site.urls),
 
     # make sure you delete this entry
-    url(r'^/?$', hello)
+    re_path(r'^/?$', hello)
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ]
+        re_path(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

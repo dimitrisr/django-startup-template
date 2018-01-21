@@ -2,7 +2,7 @@ import os
 
 try:
     import local
-    from development import *
+    from .development import *
 except:
-    from production import *
+    from .production import *
 

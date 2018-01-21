@@ -2,7 +2,7 @@
 
 """Production settings and globals."""
 
-from common import *
+from .common import *
 
 ########## DATABASE CONFIGURATION
 DATABASE = {
@@ -108,7 +108,7 @@ INSTALLED_APPS += (
 INTERNAL_IPS = ('127.0.0.1',)
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
-MIDDLEWARE_CLASSES += (
+MIDDLEWARE += (
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 ########## END TOOLBAR CONFIGURATION
