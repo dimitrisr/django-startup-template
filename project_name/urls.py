@@ -18,7 +18,7 @@ urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
 
     # make sure you delete this entry
-    re_path(r'^/?$', hello)
+    re_path(r'^$', hello)
 ]
 
 if settings.DEBUG:
