@@ -6,9 +6,9 @@ from .common import *
 
 ########## DATABASE CONFIGURATION
 DATABASE = {
-    'NAME': '',
-    'USER': '',
-    'PASSWORD': ''
+    'NAME': 'DB_NAME',
+    'USER': 'DB_USER',
+    'PASSWORD': 'DB_PASS'
 }
 ########## END DATABASE CONFIGURATION
 
@@ -83,9 +83,9 @@ STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage
 
 
 
-STATIC_ROOT = '/home/webapps/{{ project_name }}/'
+STATIC_ROOT = '/home/WF_USER/webapps/{{ project_name }}_static/'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = '/' 
+STATIC_URL = '/static' 
 ########## END STORAGE CONFIGURATION
 
 
