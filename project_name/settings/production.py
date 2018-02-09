@@ -13,9 +13,7 @@ DATABASE = {
 ########## END DATABASE CONFIGURATION
 
 ########## ALLOWED HOSTS
-ALLOWED_HOSTS = [
-        # .domain.com,
-]
+ALLOWED_HOSTS = []
 
 ########## END ALLOWED HOSTS
 
