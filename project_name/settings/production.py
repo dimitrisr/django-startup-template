@@ -83,7 +83,7 @@ STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage
 
 STATIC_ROOT = '/home/WF_USER/webapps/{{ project_name }}_static/'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = '/static' 
+STATIC_URL = '/static/' 
 ########## END STORAGE CONFIGURATION
 
 
